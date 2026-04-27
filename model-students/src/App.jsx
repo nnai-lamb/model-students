@@ -1,120 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
+import lambLogo from './assets/Lamb_logo.png'
+import nnaiLogo from './assets/NNAI.png'
+import PanelPage from './PanelPage'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function HomePage() {
+  const navigate = useNavigate()
+
+  const goToPanel = (slug) => {
+    navigate(`/panel/${slug}`)
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
+    <main className="layout">
+      <section className="half top-half" aria-label="Top layout">
         <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+          type="button"
+          className="panel panel-button"
+          aria-label="Starter panel"
+          onClick={() => goToPanel('starter')}
         >
-          Count is {count}
+          <span className="panel-title">Starter</span>
+        </button>
+
+        <article className="panel hero-panel">
+          <img src={nnaiLogo} className="nnai-badge" width="48" height="48" alt="NNAI" />
+          <img src={lambLogo} className="base" width="170" height="179" alt="" />
+          <p>Model Students</p>
+        </article>
+
+        <button
+          type="button"
+          className="panel panel-button"
+          aria-label="Top row item 3 panel"
+          onClick={() => goToPanel('top-row-item-3')}
+        >
+          <span className="panel-title">Top row item 3</span>
         </button>
       </section>
 
-      <div className="ticks"></div>
+      <section className="half bottom-half" aria-label="Bottom layout">
+        <button
+          type="button"
+          className="panel panel-button"
+          aria-label="Documentation panel"
+          onClick={() => goToPanel('documentation')}
+        >
+          <span className="panel-title">Documentation</span>
+        </button>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+        <button
+          type="button"
+          className="panel panel-button"
+          aria-label="Community panel"
+          onClick={() => goToPanel('community')}
+        >
+          <span className="panel-title">Community</span>
+        </button>
       </section>
+    </main>
+  )
+}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/panel/:slug" element={<PanelPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
 
