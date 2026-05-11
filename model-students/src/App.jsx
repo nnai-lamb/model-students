@@ -17,10 +17,9 @@ function HomePage() {
         <button
           type="button"
           className="panel panel-button"
-          aria-label="Starter panel"
-          onClick={() => goToPanel('starter')}
+          onClick={() => goToPanel('govern-ai')}
         >
-          <span className="panel-title">Starter</span>
+          <span className="panel-title">Who should govern A.I. use in the university?</span>
         </button>
 
         <article className="panel hero-panel">
@@ -32,10 +31,9 @@ function HomePage() {
         <button
           type="button"
           className="panel panel-button"
-          aria-label="Top row item 3 panel"
-          onClick={() => goToPanel('top-row-item-3')}
+          onClick={() => goToPanel('professor-ai')}
         >
-          <span className="panel-title">Top row item 3</span>
+          <span className="panel-title">Should professors use A.I. to teach?</span>
         </button>
       </section>
 
@@ -43,19 +41,17 @@ function HomePage() {
         <button
           type="button"
           className="panel panel-button"
-          aria-label="Documentation panel"
-          onClick={() => goToPanel('documentation')}
+          onClick={() => goToPanel('guilty-ai')}
         >
-          <span className="panel-title">Documentation</span>
+          <span className="panel-title">Why do students feel guilty using A.I. for school?</span>
         </button>
 
         <button
           type="button"
           className="panel panel-button"
-          aria-label="Community panel"
-          onClick={() => goToPanel('community')}
+          onClick={() => goToPanel('ai-privilege')}
         >
-          <span className="panel-title">Community</span>
+          <span className="panel-title">Should A.I. be a student-earned privilege?</span>
         </button>
       </section>
     </main>
