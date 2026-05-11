@@ -1,0 +1,113 @@
+.post-it-note {
+  position: absolute;
+  color: black;
+  width: clamp(150px, 18vw, 230px);
+  min-height: 120px;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  line-height: 1.35;
+  font-size: 0.98rem;
+  z-index: 1;
+  overflow-wrap: anywhere;
+}
+
+.post-it-text {
+  margin: 0;
+}
+
+.like-button {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+.like-button .heart-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.like-button.liked .heart-icon {
+  color: #d7263d;
+}
+
+.like-count {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.like-button:focus-visible {
+  outline: 2px solid #5e77c3;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.response-composer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.response-composer-card {
+  width: min(100%, 500px);
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.response-composer-card h2 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  color: hotpink;
+}
+
+.response-composer-card textarea {
+  width: min(100%, 420px);
+  border: 1px solid #ced6e4;
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  resize: vertical;
+}
+
+.response-composer-card textarea:focus-visible {
+  outline: 2px solid #5e77c3;
+  outline-offset: 1px;
+}
+
+.composer-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: min(100%, 420px);
+}
+
+.composer-actions button {
+  border: 1px solid #d7deed;
+  border-radius: 10px;
+  padding: 8px 14px;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.composer-actions button:last-child {
+  background: #ffd7ed;
+}
