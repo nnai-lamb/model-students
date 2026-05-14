@@ -77,9 +77,8 @@ function getRandomPostItPosition(mainElement, panelElement) {
   return fallback
 }
 
-function AddResponse({ isComposerOpen, setIsComposerOpen, pageRef, panelContentRef }) {
+function AddResponse({ isComposerOpen, setIsComposerOpen, pageRef, panelContentRef, responses, setResponses }) {
   const [draftResponse, setDraftResponse] = useState('')
-  const [responses, setResponses] = useState([])
 
   const handlePostResponse = () => {
     const text = draftResponse.trim()
