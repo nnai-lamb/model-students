@@ -30,11 +30,14 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: model-students/package-lock.json
 
       - name: Install dependencies
+        working-directory: model-students
         run: npm ci
 
       - name: Build
+        working-directory: model-students
         env:
           VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
           VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
@@ -49,7 +52,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./model-students/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
