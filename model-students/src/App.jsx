@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
-import lambLogo from './assets/Lamb_logo.png'
+import lambLogo from './assets/Lamb_Logo.png'
 import nnaiLogo from './assets/NNAI.png'
 import PanelPage from './PanelPage'
 import './App.css'
