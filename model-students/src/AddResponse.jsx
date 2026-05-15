@@ -16,7 +16,7 @@ function intersects(rectA, rectB) {
   )
 }
 
-function getRandomPostItPosition(mainElement, panelElement) {
+function getRandomPostItPosition(mainElement, panelElement, existingResponses = []) {
   const fallback = {
     top: randomBetween(18, 82),
     left: randomBetween(10, 90),
@@ -66,7 +66,30 @@ function getRandomPostItPosition(mainElement, panelElement) {
       bottom: centerY + halfH,
     }
 
-    if (!intersects(noteRect, panelLocal)) {
+    if (intersects(noteRect, panelLocal)) {
+      continue
+    }
+
+    // Check against existing responses
+    let overlapsWithExisting = false
+    for (const response of existingResponses) {
+      const existingCenterX = (response.left / 100) * mainRect.width
+      const existingCenterY = (response.top / 100) * mainRect.height
+
+      const existingRect = {
+        left: existingCenterX - halfW,
+        right: existingCenterX + halfW,
+        top: existingCenterY - halfH,
+        bottom: existingCenterY + halfH,
+      }
+
+      if (intersects(noteRect, existingRect)) {
+        overlapsWithExisting = true
+        break
+      }
+    }
+
+    if (!overlapsWithExisting) {
       return {
         left: (centerX / mainRect.width) * 100,
         top: (centerY / mainRect.height) * 100,
@@ -87,7 +110,7 @@ function AddResponse({ isComposerOpen, setIsComposerOpen, pageRef, panelContentR
       return
     }
 
-    const safePosition = getRandomPostItPosition(pageRef.current, panelContentRef.current)
+    const safePosition = getRandomPostItPosition(pageRef.current, panelContentRef.current, responses)
 
     const newResponse = {
       id: Date.now() + Math.random(),

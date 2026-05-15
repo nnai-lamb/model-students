@@ -23,8 +23,8 @@ function HomePage() {
         </button>
 
         <article className="panel hero-panel">
-          <img src={nnaiLogo} className="nnai-badge" width="48" height="48" alt="NNAI" />
-          <img src={lambLogo} className="base" width="170" height="179" alt="" />
+          {/* <img src={nnaiLogo} className="nnai-badge" width="48" height="48" alt="NNAI" /> 
+          <img src={lambLogo} className="base" width="170" height="179" alt="" /> */}
           <p>Model Students</p>
         </article>
 
