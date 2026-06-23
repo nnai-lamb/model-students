@@ -1,6 +1,4 @@
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
-import lambLogo from './assets/Lamb_Logo.png'
-import nnaiLogo from './assets/NNAI.png'
 import PanelPage from './PanelPage'
 import './App.css'
 
@@ -23,8 +21,6 @@ function HomePage() {
         </button>
 
         <article className="panel hero-panel">
-          {/* <img src={nnaiLogo} className="nnai-badge" width="48" height="48" alt="NNAI" /> 
-          <img src={lambLogo} className="base" width="170" height="179" alt="" /> */}
           <p>Model Students</p>
         </article>
 
